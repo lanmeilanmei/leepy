@@ -31,7 +31,6 @@ class SolutionT101(object):
         :type root: TreeNode
         :rtype: bool
         """
-        if not root: return True
         return self.__mirror(root.left, root.right)
 
     def __mirror(self, p, q):
