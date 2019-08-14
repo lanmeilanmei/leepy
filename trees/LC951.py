@@ -1,0 +1,52 @@
+"""
+951. Flip Equivalent Binary Trees
+
+For a binary tree T, we can define a flip operation as follows: choose any node, and swap the left and right child subtrees.
+
+A binary tree X is flip equivalent to a binary tree Y if and only if we can make X equal to Y after some number of flip operations.
+
+Write a function that determines whether two binary trees are flip equivalent.  The trees are given by root nodes root1 and root2.
+
+
+Example 1:
+
+Input: root1 = [1,2,3,4,5,6,null,null,null,7,8], root2 = [1,3,2,null,6,4,5,null,null,null,null,8,7]
+Output: true
+Explanation: We flipped at nodes with values 1, 3, and 5.
+         1
+       /  \
+      2    3
+     / \   /
+    4  5  6
+      / \
+     7   8
+
+          1
+       /   \
+      3     2
+       \   / \
+       6  4   5
+             / \
+            8   7
+Note:
+
+Each tree will have at most 100 nodes.
+Each value in each tree will be a unique integer in the range [0, 99].
+"""
+# notes:
+
+
+class SolutionT951(object):
+    def flipEquiv(self, root1, root2):
+        """
+        :type root1: TreeNode
+        :type root2: TreeNode
+        :rtype: bool
+        """
+        if not root1 and not root2: return True
+        if not root1 or not root2: return False
+        left1 = self.flipEquiv(root1.left, root2.left)
+        left2 = self.flipEquiv(root1.left, root2.right)
+        right1 = self.flipEquiv(root1.right, root2.right)
+        right2 = self.flipEquiv(root1.right, root2.left)
+        return root1.val == root2.val and ((left1 and right1) or (left2 and right2))
