@@ -63,6 +63,11 @@ class TreeTest(unittest.TestCase):
         self.assertEqual(SolutionT590().postorder_recursively(get_multi_children_tree()), [5, 6, 3, 2, 4, 1])
         self.assertEqual(SolutionT590().postorder_loop(get_multi_children_tree()), [5, 6, 3, 2, 4, 1])
 
+    def test_lc110(self):
+        from trees.LC110 import SolutionT110
+        self.assertEqual(SolutionT110().isBalanced(get_symmetric_tree()), True)
+        self.assertEqual(SolutionT110().isBalanced_(get_symmetric_tree()), True)
+
 
 if __name__ == '__main__':
     unittest.main()
