@@ -139,7 +139,7 @@ def template_postorder_iteratively(root):
     return res
 
 
-# ----------迭代遍历树, 关键在于前序进栈的顺序, 后序是逆后续----------
+# ----------迭代遍历树, 关键在于前序进栈的顺序, 以及逆后序----------
 
 def template_preorder_iterative_hf(root):
     if not root: return []
@@ -291,4 +291,20 @@ def get_flip_equivalent_tree_b():
     root.left = TreeNode(3)
     root.left.right = TreeNode(6)
 
+    return root
+
+
+from trees.LC589 import Node
+
+
+def get_multi_children_tree():
+    """
+         1
+       / \ \
+      3  2  4
+    /  \
+   5   6
+    """
+    c1 = Node(3, [Node(5), Node(6)])
+    root = Node(1, [c1, Node(2), Node(4)])
     return root

@@ -6,12 +6,7 @@ from test.trees.trees import template_preorder_by_loop, template_preorder_iterat
                              template_postorder_by_loop, template_postorder_iteratively, template_postorder_iterative_hf
 from test.trees.trees import get_binary_tree, get_binary_tree_02, get_binary_tree_03, \
     get_symmetric_tree, get_flip_equivalent_tree_a, get_flip_equivalent_tree_b
-from trees.LC104 import SolutionT104
-from trees.LC111 import SolutionT111
-from trees.LC112 import SolutionT112
-from trees.LC100 import SolutionT100
-from trees.LC101 import SolutionT101
-from trees.LC951 import SolutionT951
+from test.trees.trees import get_multi_children_tree
 
 
 class TreeTest(unittest.TestCase):
@@ -30,25 +25,43 @@ class TreeTest(unittest.TestCase):
         self.assertEqual(template_postorder_iterative_hf(get_binary_tree()), [9, 15, 7, 20, 3])
 
     def test_lc104(self):
+        from trees.LC104 import SolutionT104
         self.assertEqual(SolutionT104().maxDepth(get_binary_tree()), 3)
 
     def test_lc111(self):
+        from trees.LC111 import SolutionT111
         self.assertEqual(SolutionT111().minDepth(get_binary_tree()), 2)
         self.assertEqual(SolutionT111().minDepth(get_binary_tree_02()), 2)
 
     def test_lc112(self):
+        from trees.LC112 import SolutionT112
         self.assertEqual(SolutionT112().hasPathSum(get_binary_tree_03(), 22), True)
 
     def test_lc100(self):
+        from trees.LC100 import SolutionT100
         self.assertEqual(SolutionT100().isSameTree(get_binary_tree(), get_binary_tree()), True)
         self.assertEqual(SolutionT100().isSameTree(get_binary_tree(), get_binary_tree_02()), False)
         self.assertEqual(SolutionT100().isSameTree(get_binary_tree(), get_binary_tree_03()), False)
 
     def test_lc101(self):
+        from trees.LC101 import SolutionT101
         self.assertEqual(SolutionT101().isSymmetric(get_symmetric_tree()), True)
 
     def test_lc951(self):
+        from trees.LC951 import SolutionT951
         self.assertEqual(SolutionT951().flipEquiv(get_flip_equivalent_tree_a(), get_flip_equivalent_tree_b()), True)
+
+    def test_lc589(self):
+        from trees.LC589 import SolutionT589
+        self.assertEqual(SolutionT589().preorder(get_multi_children_tree()), [1, 3, 5, 6, 2, 4])
+        self.assertEqual(SolutionT589().preorder_recursively(get_multi_children_tree()), [1, 3, 5, 6, 2, 4])
+        self.assertEqual(SolutionT589().preorder_loop(get_multi_children_tree()), [1, 3, 5, 6, 2, 4])
+
+    def test_lc590(self):
+        from trees.LC590 import SolutionT590
+        self.assertEqual(SolutionT590().postorder(get_multi_children_tree()), [5, 6, 3, 2, 4, 1])
+        self.assertEqual(SolutionT590().postorder_recursively(get_multi_children_tree()), [5, 6, 3, 2, 4, 1])
+        self.assertEqual(SolutionT590().postorder_loop(get_multi_children_tree()), [5, 6, 3, 2, 4, 1])
 
 
 if __name__ == '__main__':
