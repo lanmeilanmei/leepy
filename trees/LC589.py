@@ -67,3 +67,4 @@ class SolutionT589(object):
                         stack.append((child, 0))
                     stack.append((node, 1))
         return res
+

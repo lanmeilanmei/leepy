@@ -56,3 +56,4 @@ class SolutionT590(object):
                     for child in node.children[::-1]:
                         stack.append((child, 0))
         return res
+
