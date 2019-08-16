@@ -29,7 +29,7 @@ Note:
 The number of nodes in the given tree will be in the range [1, 100].
 Each node's value will be an integer in the range [0, 99].
 """
-# notes: 11/16  50/83 + return 94/66    50/91
+# notes: 11/16  50/83 + return 94/66    50/91 [T:O(n), S:O(h)]
 # 2th method is similar to LC100
 
 
