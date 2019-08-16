@@ -6,7 +6,7 @@ from test.trees.trees import template_preorder_by_loop, template_preorder_iterat
                              template_postorder_by_loop, template_postorder_iteratively, template_postorder_iterative_hf
 from test.trees.trees import get_binary_tree, get_binary_tree_02, get_binary_tree_03, \
     get_symmetric_tree, get_flip_equivalent_tree_a, get_flip_equivalent_tree_b
-from test.trees.trees import get_multi_children_tree, get_subtree_a, get_subtree_b, get_unival_tree
+from test.trees.trees import get_multi_children_tree, get_subtree_a, get_subtree_b, get_unival_tree, get_pruned_tree
 
 
 class TreeTest(unittest.TestCase):
@@ -79,6 +79,15 @@ class TreeTest(unittest.TestCase):
         self.assertEqual(SolutionT965().isUnivalTree(get_unival_tree(negtive=True)), False)
         self.assertEqual(SolutionT965().isUnivalTree_recursively(get_unival_tree()), True)
         self.assertEqual(SolutionT965().isUnivalTree_recursively(get_unival_tree(negtive=True)), False)
+
+    # def test_lc814(self):
+    #     from trees.LC814 import SolutionT814
+    #     self.assertEqual(SolutionT814().pruneTree(get_pruned_tree()), get_pruned_tree(pruned=True))
+
+    def test_lc113(self):
+        from trees.LC113 import SolutionT113
+        self.assertEqual(SolutionT113().pathSum(get_pruned_tree(), 2), [[1, 0, 1], [1, 1]])
+        # self.assertEqual(SolutionT113().pathSum_hh(get_pruned_tree(), 2), [[1, 0, 1], [1, 1]])
 
 
 if __name__ == '__main__':

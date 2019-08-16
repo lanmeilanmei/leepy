@@ -362,3 +362,22 @@ def get_unival_tree(negtive=False):
     root.right = TreeNode(2)
 
     return root
+
+
+def get_pruned_tree(pruned=False):
+    """
+         1
+        / \
+       0   1
+      / \
+     0   1
+    """
+    root = TreeNode(1)
+
+    root.left = TreeNode(0)
+    root.left.right = TreeNode(1)
+    if pruned:
+        root.left.left = TreeNode(0)
+
+    root.right = TreeNode(1)
+    return root
