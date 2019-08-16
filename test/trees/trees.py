@@ -342,3 +342,23 @@ def get_subtree_b():
     root.right = TreeNode(2)
 
     return root
+
+
+def get_unival_tree(negtive=False):
+    """
+         2
+        / \
+       2   2
+      / \
+     5   2
+    """
+    root = TreeNode(2)
+
+    root.left = TreeNode(2)
+    root.left.right = TreeNode(2)
+    if negtive:
+        root.left.left = TreeNode(5)
+
+    root.right = TreeNode(2)
+
+    return root
