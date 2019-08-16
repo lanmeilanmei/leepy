@@ -308,3 +308,37 @@ def get_multi_children_tree():
     c1 = Node(3, [Node(5), Node(6)])
     root = Node(1, [c1, Node(2), Node(4)])
     return root
+
+
+def get_subtree_a(negtive=False):
+    """
+         3
+        / \
+       4   5
+      / \
+     1   2
+    """
+    root = TreeNode(3)
+
+    root.left = TreeNode(4)
+    root.left.left = TreeNode(1)
+    root.left.right = TreeNode(2)
+    if negtive:
+        root.left.right.left = TreeNode(0)
+
+    root.right = TreeNode(5)
+
+    return root
+
+
+def get_subtree_b():
+    """
+       4
+      / \
+     1   2
+    """
+    root = TreeNode(4)
+    root.left = TreeNode(1)
+    root.right = TreeNode(2)
+
+    return root

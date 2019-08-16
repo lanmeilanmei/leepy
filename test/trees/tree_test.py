@@ -6,7 +6,7 @@ from test.trees.trees import template_preorder_by_loop, template_preorder_iterat
                              template_postorder_by_loop, template_postorder_iteratively, template_postorder_iterative_hf
 from test.trees.trees import get_binary_tree, get_binary_tree_02, get_binary_tree_03, \
     get_symmetric_tree, get_flip_equivalent_tree_a, get_flip_equivalent_tree_b
-from test.trees.trees import get_multi_children_tree
+from test.trees.trees import get_multi_children_tree, get_subtree_a, get_subtree_b
 
 
 class TreeTest(unittest.TestCase):
@@ -67,6 +67,11 @@ class TreeTest(unittest.TestCase):
         from trees.LC110 import SolutionT110
         self.assertEqual(SolutionT110().isBalanced(get_symmetric_tree()), True)
         self.assertEqual(SolutionT110().isBalanced_(get_symmetric_tree()), True)
+
+    def test_lc572(self):
+        from trees.LC572 import SolutionT572
+        self.assertEqual(SolutionT572().isSubtree(get_subtree_a(), get_subtree_b()), True)
+        self.assertEqual(SolutionT572().isSubtree(get_subtree_a(negtive=True), get_subtree_b()), False)
 
 
 if __name__ == '__main__':
