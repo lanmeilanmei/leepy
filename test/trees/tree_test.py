@@ -94,6 +94,17 @@ class TreeTest(unittest.TestCase):
         self.assertEqual(SolutionT102().levelOrderRecursively(get_binary_tree_02()), [[3], [9, 20], [15, 7], [9]])
         self.assertEqual(SolutionT102().levelOrder(get_binary_tree_02()), [[3], [9, 20], [15, 7], [9]])
 
+    def test_lc872(self):
+        from trees.LC872 import SolutionT872
+        self.assertEqual(SolutionT872().inorder_leaf(get_binary_tree_02()), [9, 15, 9])
+        self.assertEqual(SolutionT872().inorder_dfs_leaf(get_binary_tree_02()), [9, 15, 9])
+        self.assertEqual(SolutionT872().inorder_loop_leaf(get_binary_tree_02()), [9, 15, 9])
+        self.assertEqual(SolutionT872().leafSimilar(get_binary_tree_02(), get_binary_tree_02()), True)
+        self.assertEqual(SolutionT872().leafSimilar(get_binary_tree_02(), get_binary_tree_03()), False)
+        self.assertEqual(SolutionT872().leafSimilarDFS(get_binary_tree_02(), get_binary_tree_02()), True)
+        self.assertEqual(SolutionT872().leafSimilarDFS(get_binary_tree_02(), get_binary_tree_03()), False)
+        self.assertEqual(SolutionT872().leafSimilarByLoop(get_binary_tree_02(), get_binary_tree_02()), True)
+
 
 if __name__ == '__main__':
     unittest.main()
