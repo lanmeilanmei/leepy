@@ -189,7 +189,7 @@ def get_binary_tree():
 def get_binary_tree_02():
     """
     Given binary tree [3,9,20,null,null,15,7,9],
-        1
+        3
        / \
       9  20
         /  \
