@@ -381,3 +381,30 @@ def get_pruned_tree(pruned=False):
 
     root.right = TreeNode(1)
     return root
+
+
+def get_vertical_order_tree():
+    """
+         0
+        / \
+       8   1
+         /   \
+        3     2
+        \     /
+         4    5
+         \   /
+         7  6
+    """
+    root = TreeNode(0)
+    root.left = TreeNode(8)
+    root.right = TreeNode(1)
+
+    root.right.left = TreeNode(3)
+    root.right.left.right = TreeNode(4)
+    root.right.left.right.right = TreeNode(7)
+
+    root.right.right = TreeNode(2)
+    root.right.right.left = TreeNode(5)
+    root.right.right.left.left = TreeNode(6)
+
+    return root

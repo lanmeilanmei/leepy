@@ -6,7 +6,8 @@ from test.trees.trees import template_preorder_by_loop, template_preorder_iterat
                              template_postorder_by_loop, template_postorder_iteratively, template_postorder_iterative_hf
 from test.trees.trees import get_binary_tree, get_binary_tree_02, get_binary_tree_03, \
     get_symmetric_tree, get_flip_equivalent_tree_a, get_flip_equivalent_tree_b
-from test.trees.trees import get_multi_children_tree, get_subtree_a, get_subtree_b, get_unival_tree, get_pruned_tree
+from test.trees.trees import get_multi_children_tree, get_subtree_a, get_subtree_b, get_unival_tree, get_pruned_tree, \
+    get_vertical_order_tree
 
 
 class TreeTest(unittest.TestCase):
@@ -104,6 +105,12 @@ class TreeTest(unittest.TestCase):
         self.assertEqual(SolutionT872().leafSimilarDFS(get_binary_tree_02(), get_binary_tree_02()), True)
         self.assertEqual(SolutionT872().leafSimilarDFS(get_binary_tree_02(), get_binary_tree_03()), False)
         self.assertEqual(SolutionT872().leafSimilarByLoop(get_binary_tree_02(), get_binary_tree_02()), True)
+
+    def test_lc987(self):
+        from trees.LC987 import SolutionT987
+        # self.assertEqual(SolutionT987().verticalTraversal(get_binary_tree_02()), [[9], [3, 15], [20], [7], [9]])
+        # self.assertEqual(SolutionT987().verticalTraversal(get_vertical_order_tree()), [[8], [0, 3, 6], [1, 4, 5], [2, 7]])
+        self.assertEqual(SolutionT987().verticalTraversal_hh(get_vertical_order_tree()), [[8], [0, 3, 6], [1, 4, 5], [2, 7]])
 
 
 if __name__ == '__main__':
