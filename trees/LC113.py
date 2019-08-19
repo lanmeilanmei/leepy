@@ -23,7 +23,7 @@ Return:
    [5,8,4,5]
 ]
 """
-# notes: search in dfs 40/71
+# notes: search in dfs 40/71  dfs_iteratively 65/85
 
 
 # TODO method by hh, not passed
@@ -72,3 +72,15 @@ class SolutionT113(object):
     #     self.__dfs_hh(node.right, new_k, path, res)
     #     path.pop()
 
+    def pathSum_iteratively(self, root, s):
+        if not root: return []
+        res, stack = [], [(root, [root.val], s)]
+        while stack:
+            curr, path, k = stack.pop()
+            if not curr.left and not curr.right and curr.val == k:
+                res.append(path[:])
+            if curr.right:
+                stack.append((curr.right, path+[curr.right.val], k-curr.val))
+            if curr.left:
+                stack.append((curr.left, path+[curr.left.val], k-curr.val))
+        return res

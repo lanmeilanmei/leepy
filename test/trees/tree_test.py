@@ -88,7 +88,7 @@ class TreeTest(unittest.TestCase):
     def test_lc113(self):
         from trees.LC113 import SolutionT113
         self.assertEqual(SolutionT113().pathSum(get_pruned_tree(), 2), [[1, 0, 1], [1, 1]])
-        # self.assertEqual(SolutionT113().pathSum_hh(get_pruned_tree(), 2), [[1, 0, 1], [1, 1]])
+        self.assertEqual(SolutionT113().pathSum_iteratively(get_pruned_tree(), 2), [[1, 0, 1], [1, 1]])
 
     def test_lc102(self):
         from trees.LC102 import SolutionT102
