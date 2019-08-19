@@ -7,7 +7,7 @@ from test.trees.trees import template_preorder_by_loop, template_preorder_iterat
 from test.trees.trees import get_binary_tree, get_binary_tree_02, get_binary_tree_03, \
     get_symmetric_tree, get_flip_equivalent_tree_a, get_flip_equivalent_tree_b
 from test.trees.trees import get_multi_children_tree, get_subtree_a, get_subtree_b, get_unival_tree, get_pruned_tree, \
-    get_vertical_order_tree
+    get_vertical_order_tree, get_pathSum_tree
 
 
 class TreeTest(unittest.TestCase):
@@ -111,6 +111,12 @@ class TreeTest(unittest.TestCase):
         # self.assertEqual(SolutionT987().verticalTraversal(get_binary_tree_02()), [[9], [3, 15], [20], [7], [9]])
         # self.assertEqual(SolutionT987().verticalTraversal(get_vertical_order_tree()), [[8], [0, 3, 6], [1, 4, 5], [2, 7]])
         self.assertEqual(SolutionT987().verticalTraversal_hh(get_vertical_order_tree()), [[8], [0, 3, 6], [1, 4, 5], [2, 7]])
+
+    def test_lc437(self):
+        from trees.LC437 import SolutionT437
+        # self.assertEqual(SolutionT437().pathSum(get_unival_tree(), 4), [[2, 2], [2, 2], [2, 2]])
+        # self.assertEqual(SolutionT437().pathSum(get_pathSum_tree(), 8), [[5, 3], [5, 2, 1], [-3, 11]])
+        self.assertEqual(SolutionT437().pathSum(get_pathSum_tree(), 8), 3)
 
 
 if __name__ == '__main__':

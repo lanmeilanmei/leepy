@@ -408,3 +408,27 @@ def get_vertical_order_tree():
     root.right.right.left.left = TreeNode(6)
 
     return root
+
+
+def get_pathSum_tree():
+    """
+          10
+         /  \
+        5   -3
+       / \    \
+      3   2   11
+     / \   \
+    3  -2   1
+    """
+    root = TreeNode(10)
+    root.left = TreeNode(5)
+    root.right = TreeNode(-3)
+
+    root.left.left = TreeNode(3)
+    root.left.right = TreeNode(2)
+    root.right.right = TreeNode(11)
+
+    root.left.left.left = TreeNode(3)
+    root.left.left.right = TreeNode(-2)
+    root.left.right.right = TreeNode(1)
+    return root
