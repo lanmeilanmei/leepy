@@ -119,6 +119,14 @@ class TreeTest(unittest.TestCase):
         self.assertEqual(SolutionT437().pathSumBetter(get_pathSum_tree(), 8), 3)
         self.assertEqual(SolutionT437().pathSumBetter_hh(get_pathSum_tree(), 8), 3)
 
+    def test_lc560(self):
+        from trees.LC560 import SolutionT560
+        # self.assertEqual(SolutionT560().subarraySum([1, 1, 1], 2), 2)
+        self.assertEqual(SolutionT560().subarraySum_BruteForce([1, 1, 1], 2), 2)
+        self.assertEqual(SolutionT560().subarraySum_BruteForce([1], 0), 0)
+        self.assertEqual(SolutionT560().subarraySum_BrutePrefix([1, 1, 1], 2), 2)
+        self.assertEqual(SolutionT560().subarraySum_PrefixSum([1, 1, 1], 2), 2)
+
 
 if __name__ == '__main__':
     unittest.main()
