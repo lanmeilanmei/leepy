@@ -13,8 +13,9 @@ The range of numbers in the array is [-1000, 1000] and the range of the integer 
 # notes:
 # subarraySum 源自LC437
 # BruteForce  --> 检查每对(i, j)的sum(nums[i:j]), complexity: O(n^3), Space complexity: O(1) 超时LTE
-# BrutePrefix --> 先记录连续累加和, 再暴力查找 Time complexity: O(n^2), Space complexity: O(n)
+# BrutePrefix --> 先记录连续累加和, 再暴力查找 Time complexity: O(n^2), Space complexity: O(n) LTE
 # PrefixSum   --> 记录连续累加和, 如果(当前累加和 - target)被PrefixSum字典记录, 则说明存在连续路径
+# PrefixSum最优: Time complexity: O(n), Space complexity: O(h)
 
 
 # TODO 未完全理解熟悉
