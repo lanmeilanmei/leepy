@@ -72,3 +72,19 @@ class SolutionT437(object):
         self.__helper(root.left, target, so_far+root.val, cache)
         self.__helper(root.right, target, so_far + root.val, cache)
         cache[so_far+root.val] -= 1             # 结束以当前结点开始的路径查找
+
+    def pathSumBetter_hh(self, root, sum):
+        self.ans = 0
+        self.cache = {0: 1}
+        self.__helper_hh(root, 0, sum)
+        return self.ans
+
+    def __helper_hh(self, root, so_far, target):
+        if not root: return
+        so_far += root.val
+        if so_far - target in self.cache:
+            self.ans += self.cache[so_far - target]
+        self.cache[so_far] = self.cache.get(so_far, 0) + 1
+        self.__helper_hh(root.left, so_far, target)
+        self.__helper_hh(root.right, so_far, target)
+        self.cache[so_far] = self.cache.get(so_far, 0) - 1

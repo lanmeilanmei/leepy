@@ -114,11 +114,10 @@ class TreeTest(unittest.TestCase):
 
     def test_lc437(self):
         from trees.LC437 import SolutionT437
-        # self.assertEqual(SolutionT437().pathSum(get_unival_tree(), 4), [[2, 2], [2, 2], [2, 2]])
-        # self.assertEqual(SolutionT437().pathSum(get_pathSum_tree(), 8), [[5, 3], [5, 2, 1], [-3, 11]])
         self.assertEqual(SolutionT437().pathSum(get_pathSum_tree(), 8), 3)
         self.assertEqual(SolutionT437().pathSum_1(get_pathSum_tree(), 8), 3)
         self.assertEqual(SolutionT437().pathSumBetter(get_pathSum_tree(), 8), 3)
+        self.assertEqual(SolutionT437().pathSumBetter_hh(get_pathSum_tree(), 8), 3)
 
 
 if __name__ == '__main__':
