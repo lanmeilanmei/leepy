@@ -82,9 +82,9 @@ class SolutionT437(object):
     def __helper_hh(self, root, so_far, target):
         if not root: return
         so_far += root.val
-        if so_far - target in self.cache:
-            self.ans += self.cache[so_far - target]
-        self.cache[so_far] = self.cache.get(so_far, 0) + 1
+        if so_far - target in self.cache:                   # 判断当前累计和与target差值
+            self.ans += self.cache[so_far - target]         # 差值已被记录, 则以当前结点为终点的所在路径符合要求
+        self.cache[so_far] = self.cache.get(so_far, 0) + 1  # 负责记录当前累计和, 无论是否符合要求都初始化为1, 表示访问过1次
         self.__helper_hh(root.left, so_far, target)
         self.__helper_hh(root.right, so_far, target)
-        self.cache[so_far] = self.cache.get(so_far, 0) - 1
+        self.cache[so_far] = self.cache.get(so_far, 0) - 1  # 结束以当前结点开始的路径查找
