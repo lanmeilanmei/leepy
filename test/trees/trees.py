@@ -432,3 +432,19 @@ def get_pathSum_tree():
     root.left.left.right = TreeNode(-2)
     root.left.right.right = TreeNode(1)
     return root
+
+
+def get_maxSum_tree():
+    """
+       -10
+       / \
+      9  20
+        /  \
+       15   7
+    """
+    root = TreeNode(-10)
+    root.left = TreeNode(9)
+    root.right = TreeNode(20)
+    root.right.left = TreeNode(15)
+    root.right.right = TreeNode(7)
+    return root
