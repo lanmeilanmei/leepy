@@ -465,3 +465,9 @@ def get_univalue_tree():
     root.left.right = TreeNode(1)
     root.right.right = TreeNode(5)
     return root
+
+
+def get_rootLeaf_tree():
+    root = TreeNode(0)
+    root.left = TreeNode(1)
+    return root

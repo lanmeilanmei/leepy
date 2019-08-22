@@ -7,7 +7,7 @@ from test.trees.trees import template_preorder_by_loop, template_preorder_iterat
 from test.trees.trees import get_binary_tree, get_binary_tree_02, get_binary_tree_03, \
     get_symmetric_tree, get_flip_equivalent_tree_a, get_flip_equivalent_tree_b
 from test.trees.trees import get_multi_children_tree, get_subtree_a, get_subtree_b, get_unival_tree, get_pruned_tree, \
-    get_vertical_order_tree, get_pathSum_tree, get_maxSum_tree, get_univalue_tree
+    get_vertical_order_tree, get_pathSum_tree, get_maxSum_tree, get_univalue_tree, get_rootLeaf_tree
 
 
 class TreeTest(unittest.TestCase):
@@ -143,6 +143,14 @@ class TreeTest(unittest.TestCase):
         from trees.LC687 import SolutionT687
         self.assertEqual(SolutionT687().longestUnivaluePath(get_unival_tree()), 3)
         self.assertEqual(SolutionT687().longestUnivaluePath(get_univalue_tree()), 2)
+
+    def test_lc129(self):
+        from trees.LC129 import SolutionT129
+        self.assertEqual(SolutionT129().sumNumbers(get_subtree_a()), 718)
+        self.assertEqual(SolutionT129().sumNumbers(get_rootLeaf_tree()), 1)
+        self.assertEqual(SolutionT129().sumNumbers_2(get_subtree_a()), 718)
+        self.assertEqual(SolutionT129().sumNumbers_2(get_rootLeaf_tree()), 1)
+        self.assertEqual(SolutionT129().sumNumbers_3(get_subtree_a()), 718)
 
 
 if __name__ == '__main__':
