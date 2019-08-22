@@ -133,6 +133,12 @@ class TreeTest(unittest.TestCase):
         # self.assertEqual(SolutionT124().maxPathSum(get_symmetric_tree()), 13)
         self.assertEqual(SolutionT124().maxPathSum(get_binary_tree_03()), 48)
 
+    def test_lc543(self):
+        from trees.LC543 import SolutionT543
+        self.assertEqual(SolutionT543().diameterOfBinaryTree(get_vertical_order_tree()), 6)
+        self.assertEqual(SolutionT543().diameterOfBinaryTree(get_maxSum_tree()), 3)
+        self.assertEqual(SolutionT543().diameterOfBinaryTreeIteratively(get_maxSum_tree()), 3)
+
 
 if __name__ == '__main__':
     unittest.main()
