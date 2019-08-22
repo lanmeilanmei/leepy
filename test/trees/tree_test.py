@@ -7,7 +7,7 @@ from test.trees.trees import template_preorder_by_loop, template_preorder_iterat
 from test.trees.trees import get_binary_tree, get_binary_tree_02, get_binary_tree_03, \
     get_symmetric_tree, get_flip_equivalent_tree_a, get_flip_equivalent_tree_b
 from test.trees.trees import get_multi_children_tree, get_subtree_a, get_subtree_b, get_unival_tree, get_pruned_tree, \
-    get_vertical_order_tree, get_pathSum_tree, get_maxSum_tree
+    get_vertical_order_tree, get_pathSum_tree, get_maxSum_tree, get_univalue_tree
 
 
 class TreeTest(unittest.TestCase):
@@ -138,6 +138,11 @@ class TreeTest(unittest.TestCase):
         self.assertEqual(SolutionT543().diameterOfBinaryTree(get_vertical_order_tree()), 6)
         self.assertEqual(SolutionT543().diameterOfBinaryTree(get_maxSum_tree()), 3)
         self.assertEqual(SolutionT543().diameterOfBinaryTreeIteratively(get_maxSum_tree()), 3)
+
+    def test_lc687(self):
+        from trees.LC687 import SolutionT687
+        self.assertEqual(SolutionT687().longestUnivaluePath(get_unival_tree()), 3)
+        self.assertEqual(SolutionT687().longestUnivaluePath(get_univalue_tree()), 2)
 
 
 if __name__ == '__main__':

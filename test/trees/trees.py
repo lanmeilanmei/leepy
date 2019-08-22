@@ -448,3 +448,20 @@ def get_maxSum_tree():
     root.right.left = TreeNode(15)
     root.right.right = TreeNode(7)
     return root
+
+
+def get_univalue_tree():
+    """
+              5
+             / \
+            4   5
+           / \   \
+          1   1   5
+    """
+    root = TreeNode(5)
+    root.left = TreeNode(4)
+    root.right = TreeNode(5)
+    root.left.left = TreeNode(1)
+    root.left.right = TreeNode(1)
+    root.right.right = TreeNode(5)
+    return root
