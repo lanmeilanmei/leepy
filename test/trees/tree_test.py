@@ -152,6 +152,13 @@ class TreeTest(unittest.TestCase):
         self.assertEqual(SolutionT129().sumNumbers_2(get_rootLeaf_tree()), 1)
         self.assertEqual(SolutionT129().sumNumbers_3(get_subtree_a()), 718)
 
+    def test_lc257(self):
+        from trees.LC257 import SolutionT257
+        self.assertEqual(SolutionT257().binaryTreePaths(get_rootLeaf_tree()), ["0->1"])
+        self.assertEqual(SolutionT257().binaryTreePaths(get_subtree_a()), ["3->4->1", "3->4->2", "3->5"])
+        self.assertEqual(SolutionT257().binaryTreePaths_2(get_subtree_a()), ["3->4->1", "3->4->2", "3->5"])
+        self.assertEqual(SolutionT257().binaryTreePaths_3(get_subtree_a()), ["3->4->1", "3->4->2", "3->5"])
+
 
 if __name__ == '__main__':
     unittest.main()
