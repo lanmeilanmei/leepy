@@ -159,6 +159,11 @@ class TreeTest(unittest.TestCase):
         self.assertEqual(SolutionT257().binaryTreePaths_2(get_subtree_a()), ["3->4->1", "3->4->2", "3->5"])
         self.assertEqual(SolutionT257().binaryTreePaths_3(get_subtree_a()), ["3->4->1", "3->4->2", "3->5"])
 
+    def test_lc508(self):
+        from trees.LC508 import SolutionT508
+        from test.trees.trees import get_mostFrequent_tree
+        self.assertEqual(SolutionT508().findFrequentTreeSum(get_mostFrequent_tree()), [2, -3, 4])
+
 
 if __name__ == '__main__':
     unittest.main()

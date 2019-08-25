@@ -471,3 +471,15 @@ def get_rootLeaf_tree():
     root = TreeNode(0)
     root.left = TreeNode(1)
     return root
+
+
+def get_mostFrequent_tree():
+    """
+      5
+     /  \
+    2   -3
+    """
+    root = TreeNode(5)
+    root.left = TreeNode(2)
+    root.right = TreeNode(-3)
+    return root
