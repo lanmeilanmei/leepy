@@ -54,3 +54,18 @@ class BSTtrees(object):
             root.right = TreeNode(3)
             root.right.left = TreeNode(2)
         return root
+
+    @classmethod
+    def bst_230(cls):
+        """
+           3
+          / \
+         1   4
+          \
+           2
+        """
+        root = TreeNode(3)
+        root.left = TreeNode(1)
+        root.right = TreeNode(4)
+        root.left.right = TreeNode(2)
+        return root

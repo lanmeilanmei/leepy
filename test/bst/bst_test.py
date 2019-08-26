@@ -19,3 +19,9 @@ class BSTtest(unittest.TestCase):
         self.assertEqual(SolutionT530().getMinimumDifference(BSTtrees.bst_2(negtive=False)), 1)
         self.assertEqual(SolutionT530().getMinimumDifference_2(BSTtrees.bst_2(negtive=False)), 1)
         self.assertEqual(SolutionT530().getMinimumDifference_Iteratively(BSTtrees.bst_2(negtive=False)), 1)
+
+    def test_lc230(self):
+        from bst.LC230 import SolutionT230
+        self.assertEqual(SolutionT230().kthSmallest(BSTtrees.bst_230(), 1), 1)
+        self.assertEqual(SolutionT230().kthSmallest_2(BSTtrees.bst_230(), 1), 1)
+        self.assertEqual(SolutionT230().kthSmallest_Iteratively(BSTtrees.bst_230(), 1), 1)
