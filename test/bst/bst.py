@@ -45,7 +45,12 @@ class BSTtrees(object):
         return root
 
     @classmethod
-    def bst_2(cls):
-        root = TreeNode(0)
-        root.right = TreeNode(-1)
+    def bst_2(cls, negtive=True):
+        if negtive:
+            root = TreeNode(0)
+            root.right = TreeNode(-1)
+        else:
+            root = TreeNode(1)
+            root.right = TreeNode(3)
+            root.right.left = TreeNode(2)
         return root
