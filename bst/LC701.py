@@ -31,6 +31,7 @@ This tree is also valid:
          \
           4
 """
+# insert在BST初始模板中有
 # notes: Time complexity: O(logn ~ n)  Space complexity: O(logn ~ n)
 from test.trees.trees import TreeNode
 
