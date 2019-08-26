@@ -69,3 +69,22 @@ class BSTtrees(object):
         root.right = TreeNode(4)
         root.left.right = TreeNode(2)
         return root
+
+    @classmethod
+    def bst_99(cls, correct=False):
+        """
+           1
+          /
+         3
+          \
+           2
+        """
+        if correct:
+            root = TreeNode(3)
+            root.left = TreeNode(1)
+            root.left.right = TreeNode(2)
+        else:
+            root = TreeNode(1)
+            root.left = TreeNode(3)
+            root.left.right = TreeNode(2)
+        return root
