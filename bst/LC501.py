@@ -22,6 +22,8 @@ Follow up: Could you do that without using any extra space?
 """
 # notes: 这题注意配合bst_501输入理解，注意到BST特性, 如果有重复值，则中序遍历时该重复值到X轴上的坐标一定是相邻的
 # 弄清这一点后，剩下的就是理解 visit 方法的处理逻辑了
+# 解法1 Time complexity: O(n) Space complexity: O(n)
+# 解法2 Time complexity: O(n) Space complexity: O(1) Two passes. First pass to find the count of the mode, second pass to collect all the modes.
 
 
 # TODO review
