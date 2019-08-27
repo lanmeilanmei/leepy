@@ -1,0 +1,15 @@
+左闭右开区间 [left, right)
+
+def binary_search(left, right):
+    while left < right:
+        mid = left + (right - left) //2
+        if f(mid): return mid           # f(mid) 函数, 判断mid是否为解
+        if g(mid):
+            right = mid                 # g(mid) 函数, 将后续循环落入左半区 [left, mid)
+        else:
+            left = mid + 1              # g(mid) 函数判断的负面, 循环进入右半区 [mid+1, right)
+
+    return left                         # 未找到实际, 找到最小的值返回
+
+Time Complexity: O(log(right - 1) * (f(m) + g(m)))
+Space Complexity: O(1)
