@@ -25,3 +25,9 @@ class BSTtest(unittest.TestCase):
         self.assertEqual(SolutionT230().kthSmallest(BSTtrees.bst_230(), 1), 1)
         self.assertEqual(SolutionT230().kthSmallest_2(BSTtrees.bst_230(), 1), 1)
         self.assertEqual(SolutionT230().kthSmallest_Iteratively(BSTtrees.bst_230(), 1), 1)
+
+    def test_lc501(self):
+        from bst.LC501 import SolutionT501
+        self.assertEqual(SolutionT501().findMode(BSTtrees.bst_501()), [2])
+        self.assertEqual(SolutionT501().findMode(BSTtrees.bst_501(extend=True)), [5, 6])
+        self.assertEqual(SolutionT501().findMode_2(BSTtrees.bst_501(extend=True)), [5, 6])
