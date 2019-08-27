@@ -14,3 +14,10 @@ class BinarySearchTest(unittest.TestCase):
 
         self.assertEqual(SolutionEx().upper_bound(BinarySearchData.A2, 5, 0, 7), 7)
         self.assertEqual(SolutionEx().upper_bound(BinarySearchData.A2, 2, 0, 7), 4)
+
+    def test_lc35(self):
+        from binary_search.LC35 import SolutionT35
+        self.assertEqual(SolutionT35().searchInsert(BinarySearchData.A35, 5), 2)
+        self.assertEqual(SolutionT35().searchInsert(BinarySearchData.A35, 7), 4)
+        self.assertEqual(SolutionT35().searchInsert(BinarySearchData.A35, 0), 0)
+
