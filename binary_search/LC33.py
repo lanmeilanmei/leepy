@@ -28,6 +28,7 @@
 # 解法1，Time Complexity O(n), Space Complexity O(n) 有数组复制和重排序
 # 解法2，Time Complexity O(n), Space Complexity O(1) 最差情况, 最后一个位置找到旋转点 Time Complexity O(n)
 # 解法3 https://leetcode.com/problems/search-in-rotated-sorted-array/discuss/14629/Python-O(lgn)-solution-(It-needs-a-pen-and-some-paper-to-figure-it-out-at-the-first-time).
+# 解法4 与模板的细节一致 Time Complexity O(logn), Space Complexity O(1)
 
 
 class SolutionT33(object):
@@ -83,11 +84,38 @@ class SolutionT33(object):
         else:
             return bianry_search(nums, i+1, N)
 
-    # def search_3(self, nums, target):
-    #     left, right = 0, len(nums)
-    #     while left < right:
-    #         mid = left + (right - left) // 2
-    #         if nums[mid] == target: return mid
-    #         if nums[mid] > target:
-    #             if
+    def search_3(self, nums, target):
+        if not nums: return -1
+        left, right = 0, len(nums) - 1
+        while left <= right:
+            mid = left + (right - left) // 2
+            if nums[mid] == target: return mid
+            if nums[left] <= nums[mid]:
+                if nums[left] <= target <= nums[mid]:
+                    right = mid - 1
+                else:
+                    left = mid + 1
+            else:
+                if nums[mid] <= target <= nums[right]:
+                    left = mid + 1
+                else:
+                    right = mid - 1
+        return -1
 
+    def search_4(self, nums, target):
+        if not nums: return -1
+        left, right = 0, len(nums)
+        while left < right:
+            mid = left + (right - left) // 2
+            if nums[mid] == target: return mid
+            if nums[left] < nums[mid]:                  # 左侧有序，已经去重不用考虑=
+                if nums[left] <= target < nums[mid]:    # 判断目标是否在左侧范围
+                    right = mid
+                else:
+                    left = mid + 1                      # 若不在左半区，则跳到右半区
+            else:                                       # 右侧有序
+                if nums[mid] < target <= nums[right-1]:
+                    left = mid + 1
+                else:
+                    right = mid
+        return -1

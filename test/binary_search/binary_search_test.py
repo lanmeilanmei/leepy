@@ -21,3 +21,7 @@ class BinarySearchTest(unittest.TestCase):
         self.assertEqual(SolutionT35().searchInsert(BinarySearchData.A35, 7), 4)
         self.assertEqual(SolutionT35().searchInsert(BinarySearchData.A35, 0), 0)
 
+    def test_lc33(self):
+        from binary_search.LC33 import SolutionT33
+        self.assertEqual(SolutionT33().search_3([4, 5, 6, 7, 0, 1, 2], 3), -1)
+        self.assertEqual(SolutionT33().search_4([4, 5, 6, 7, 0, 1, 2], 0), 4)
