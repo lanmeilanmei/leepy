@@ -25,3 +25,8 @@ class BinarySearchTest(unittest.TestCase):
         from binary_search.LC33 import SolutionT33
         self.assertEqual(SolutionT33().search_3([4, 5, 6, 7, 0, 1, 2], 3), -1)
         self.assertEqual(SolutionT33().search_4([4, 5, 6, 7, 0, 1, 2], 0), 4)
+
+    def test_lc81(self):
+        from binary_search.LC81 import SolutionT81
+        self.assertEqual(SolutionT81().search_2([2, 5, 6, 0, 0, 1, 2], 0), True)
+        self.assertEqual(SolutionT81().search_2([2, 5, 6, 0, 0, 1, 2], 3), False)

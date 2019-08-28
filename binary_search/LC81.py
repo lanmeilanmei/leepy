@@ -24,9 +24,9 @@
 链接：https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 """
+# similar to LC33 BUT differs in skill with droping duplicates
 
 
-# TODO need another method a
 class SolutionT81(object):
     def search(self, nums, target):
         """
@@ -36,3 +36,22 @@ class SolutionT81(object):
         """
         return target in nums
 
+    def search_2(self, nums, target):
+        if not nums: return False
+        left, right = 0, len(nums)
+        while left < right:
+            mid = left + (right - left) // 2
+            if nums[mid] == target: return True
+            while left < mid and nums[left] == nums[mid]:   # 去重,方便后续半区判断
+                left += 1
+            if nums[left] <= nums[mid]:                     # 左侧有序
+                if nums[left] <= target < nums[mid]:
+                    right = mid
+                else:
+                    left = mid + 1
+            else:
+                if nums[mid] < target <= nums[right-1]:
+                    left = mid + 1
+                else:
+                    right = mid
+        return False
