@@ -23,6 +23,7 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 """
 # 解法2： 类似LC33 LC81  关键是找到有序数组的旋转点，旋转点位置即最小元素
+# 解法3： 模板 需要注意的是，需要判断nums[right]时，切换成左右闭区间比较合适
 
 
 class Solutiont153(object):
@@ -54,3 +55,13 @@ class Solutiont153(object):
             else:
                 right = mid
         return nums[left]                                       # 这里最终返回是盲写，对[1]单元素测试有效
+
+    def findMin_3(self, nums):
+        left, right = 0, len(nums)-1
+        while left < right:
+            mid = left + (right - left) // 2
+            if nums[mid] > nums[right]:
+                left = mid + 1
+            else:
+                right = mid
+        return nums[left]
