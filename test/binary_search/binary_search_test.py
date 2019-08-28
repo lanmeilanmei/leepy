@@ -30,3 +30,10 @@ class BinarySearchTest(unittest.TestCase):
         from binary_search.LC81 import SolutionT81
         self.assertEqual(SolutionT81().search_2([2, 5, 6, 0, 0, 1, 2], 0), True)
         self.assertEqual(SolutionT81().search_2([2, 5, 6, 0, 0, 1, 2], 3), False)
+
+    def test_lc153(self):
+        from binary_search.LC153 import Solutiont153
+        self.assertEqual(Solutiont153().findMin([4, 5, 6, 7, 0, 1, 2]), 0)
+        self.assertEqual(Solutiont153().findMin_2([4, 5, 6, 7, 0, 1, 2]), 0)
+        self.assertEqual(Solutiont153().findMin_2([3, 4, 5, 1, 2]), 1)
+        self.assertEqual(Solutiont153().findMin_2([2, 1]), 1)
