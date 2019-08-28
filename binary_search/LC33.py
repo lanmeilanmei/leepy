@@ -27,6 +27,7 @@
 # notes:
 # 解法1，Time Complexity O(n), Space Complexity O(n) 有数组复制和重排序
 # 解法2，Time Complexity O(n), Space Complexity O(1) 最差情况, 最后一个位置找到旋转点 Time Complexity O(n)
+# 解法3 https://leetcode.com/problems/search-in-rotated-sorted-array/discuss/14629/Python-O(lgn)-solution-(It-needs-a-pen-and-some-paper-to-figure-it-out-at-the-first-time).
 
 
 class SolutionT33(object):
@@ -81,3 +82,12 @@ class SolutionT33(object):
             return bianry_search(nums, 0, i)
         else:
             return bianry_search(nums, i+1, N)
+
+    # def search_3(self, nums, target):
+    #     left, right = 0, len(nums)
+    #     while left < right:
+    #         mid = left + (right - left) // 2
+    #         if nums[mid] == target: return mid
+    #         if nums[mid] > target:
+    #             if
+
