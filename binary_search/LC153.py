@@ -24,8 +24,10 @@
 """
 # 解法2： 类似LC33 LC81  关键是找到有序数组的旋转点，旋转点位置即最小元素
 # 解法3： 模板 需要注意的是，需要判断nums[right]时，切换成左右闭区间比较合适
+# 解法4：http://zxi.mytechroad.com/blog/leetcode/leetcode-153-find-minimum-in-rotated-sorted-array/
 
 
+# TODO
 class Solutiont153(object):
     def findMin(self, nums):
         """
@@ -65,3 +67,17 @@ class Solutiont153(object):
             else:
                 right = mid
         return nums[left]
+
+    def findMin_4(self, nums):
+        return self.binary_search(nums, 0, len(nums)-1)
+
+    def binary_search(self, nums, left, right):
+        if left + 1 >= right:
+            return min(nums[left], nums[right])
+
+        if nums[left] < nums[right]:
+            return nums[left]
+
+        mid = left + (right - left) // 2
+
+        return min(self.binary_search(nums, left, mid-1), self.binary_search(nums, mid, right))
