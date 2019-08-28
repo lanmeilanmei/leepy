@@ -40,3 +40,29 @@ class SolutionEx(object):
             else:
                 left = mid + 1
         return left
+
+    def sqrt(self, x):
+        """
+        求最接近sqrt(x)的数，这里与upper_bound类似，都是求不超过目标值的最大值
+        """
+        left, right = 0, x + 1
+        while left < right:
+            mid = left + (right - left) // 2
+            if mid * mid > x:                   # 这里g(m)比上面略复杂
+                right = mid
+            else:
+                left = mid + 1
+        return left - 1
+
+    def firstBadVersion(self, n):
+        def isBadVersion(x):
+            return
+
+        left, right = 0, n
+        while left < right:
+            mid = left + (right - left) // 2
+            if isBadVersion(mid):               # g(m)比上面略复杂
+                right = mid
+            else:
+                left = mid + 1
+        return left
