@@ -50,3 +50,7 @@ class BinarySearchTest(unittest.TestCase):
         from binary_search.LC154 import SolutionT154
         self.assertEqual(SolutionT154().findMin_2([2, 2, 2, 0, 1]), 0)
         self.assertEqual(SolutionT154().findMin_2([3, 1, 1]), 1)
+
+    def test_lc162(self):
+        from binary_search.LC162 import SolutionT162
+        self.assertEqual(SolutionT162().findPeakElement_2([4, 3, 4, 3, 4, 3, 2]), 4)
