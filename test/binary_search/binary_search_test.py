@@ -42,7 +42,11 @@ class BinarySearchTest(unittest.TestCase):
         self.assertEqual(Solutiont153().findMin_3([3, 4, 5, 1, 2]), 1)
         self.assertEqual(Solutiont153().findMin_3([2, 1]), 1)
 
+        self.assertEqual(Solutiont153().findMin_4([4, 5, 6, 7, 0, 1, 2]), 0)
+        self.assertEqual(Solutiont153().findMin_4([3, 4, 5, 1, 2]), 1)
+        self.assertEqual(Solutiont153().findMin_4([2, 1]), 1)
+
     def test_lc154(self):
         from binary_search.LC154 import SolutionT154
         self.assertEqual(SolutionT154().findMin_2([2, 2, 2, 0, 1]), 0)
-        # self.assertEqual(SolutionT154().findMin_2([3, 1, 1]), 1)
+        self.assertEqual(SolutionT154().findMin_2([3, 1, 1]), 1)

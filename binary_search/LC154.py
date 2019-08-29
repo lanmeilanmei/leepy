@@ -27,9 +27,10 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 """
 # by_hh https://zxi.mytechroad.com/blog/?s=Find+Minimum+in+Rotated+Sorted+Array
+# 结合lc153
 
 
-# TODO
+# review
 class SolutionT154(object):
     def findMin(self, nums):
         """
