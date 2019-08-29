@@ -71,3 +71,16 @@ class SolutionT162(object):
             return self.binary_search(nums, left, mid)
         else:
             return self.binary_search(nums, mid+1, right)
+
+    def findPeakElement_4(self, nums):
+        if not nums: return 0
+        left, right = 0, len(nums)-1
+        while left < right:
+            mid = left + (right - left) // 2
+            if (mid - 1 < 0 or nums[mid-1] < nums[mid]) and nums[mid] > nums[mid+1]:    # 双数列表会返回左侧，因此mid+1始终可用
+                return mid
+            elif nums[mid] > nums[mid+1]:
+                right = mid
+            else:
+                left = mid + 1
+        return left     # left == right
