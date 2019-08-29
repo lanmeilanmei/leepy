@@ -27,7 +27,7 @@
 # 解法4：http://zxi.mytechroad.com/blog/leetcode/leetcode-153-find-minimum-in-rotated-sorted-array/
 
 
-# TODO
+# review
 class Solutiont153(object):
     def findMin(self, nums):
         """
@@ -72,10 +72,10 @@ class Solutiont153(object):
         return self.binary_search(nums, 0, len(nums)-1)
 
     def binary_search(self, nums, left, right):
-        if left + 1 >= right:
+        if left + 1 >= right:                       # 双元素处理
             return min(nums[left], nums[right])
 
-        if nums[left] < nums[right]:
+        if nums[left] < nums[right]:                # 若局部有序则直接返回最左端元素
             return nums[left]
 
         mid = left + (right - left) // 2
