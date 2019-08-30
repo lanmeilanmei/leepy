@@ -74,3 +74,19 @@ class SolutionT74(object):
                 left = mid + 1
 
         return False
+
+    def searchMatrix_3(self, matrix, target):
+        if not matrix or target is None: return False
+        cols = len(matrix[0])
+        left, right = 0, len(matrix) * cols - 1
+        while left < right:
+            mid = left + (right - left) // 2
+            i, j = mid // cols, mid % cols
+            if matrix[i][j] == target: return True
+
+            if matrix[i][j] > target:
+                right = mid - 1
+            else:
+                left = mid + 1
+        return False
+
