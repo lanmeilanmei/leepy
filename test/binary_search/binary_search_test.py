@@ -54,3 +54,12 @@ class BinarySearchTest(unittest.TestCase):
     def test_lc162(self):
         from binary_search.LC162 import SolutionT162
         self.assertEqual(SolutionT162().findPeakElement_2([4, 3, 4, 3, 4, 3, 2]), 4)
+
+    def test_lc69(self):
+        from binary_search.LC69 import SolutionT69
+        self.assertEqual(SolutionT69().mySqrt(8), 2)
+
+    def test_lc74(self):
+        from binary_search.LC74 import SolutionT74
+        # self.assertEqual(SolutionT74().searchMatrix([[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 50]], 3), True)
+        self.assertEqual(SolutionT74().searchMatrix([[1]], 1), True)
