@@ -62,7 +62,7 @@ class SolutionT74(object):
         if not matrix: return False
         left = 0
         cols = len(matrix[0])
-        right = len(matrix) * len(cols)
+        right = len(matrix) * cols
 
         while left < right:
             mid = left + (right - left) // 2
