@@ -44,7 +44,7 @@ class Solutiont70(object):
         return res[n]
 
     def climbStairs_2(self, n):
-        one, two, curr = 1
+        one, two, curr = 1, 1, 1
         for i in range(2, n+1):
             curr = one + two
             two = one
