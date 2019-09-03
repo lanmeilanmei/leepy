@@ -26,8 +26,11 @@ cost 的长度将会在 [2, 1000]。
 链接：https://leetcode-cn.com/problems/min-cost-climbing-stairs
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 """
-# f(x) = min(f(x-1), f(x-2)) + cost[i]
+# f(x) = min(f(x-1), f(x-2)) + cost[x]
 # dp[i] = min(dp[i-1] + cost[i-1], dp[i-2] + cost[i-2])
+# 解法1、2、3都是基于上面最优解公式的DP解法，解法4、5分别是按照两个最优公式的写法
+# 解法3 是O(n)+O(1)，其他都是O(n)+O(n)
+# similar to lc70
 
 
 class Solutiont746(object):
@@ -42,7 +45,7 @@ class Solutiont746(object):
         dp[1] = cost[1]
         for i in range(2, n):
             dp[i] = min(dp[i-1], dp[i-2]) + cost[i]
-        return min(dp[n-1], dp[n-2])
+        return min(dp[n-1], dp[n-2])        # 注意这里返回的次序
 
     def minCostClimbingStairs_2(self, cost):
         n = len(cost)
@@ -63,11 +66,20 @@ class Solutiont746(object):
         def recursive(costs, m, i):
             if i < 0: return 0
             if m[i] > 0: return m[i]
-            m[i] = min(recursive(costs, m, i - 1), recursive(costs, m, i - 2)) + costs[i]
+            m[i] = min(recursive(costs, m, i - 1), recursive(costs, m, i - 2)) + costs[i]   # 解法1公式
             return m[i]
 
         n = len(cost)
         mm = [-1] * (n + 1)
         return min(recursive(cost, mm, n-1), recursive(cost, mm, n-2))
 
+    def minCostClimbingStairs_5(self, cost):
+        def recursive(costs, m, i):
+            if i < 2: return 0                          # 这里照解法2的公式写
+            if m[i] > 0: return m[i]
+            m[i] = min(recursive(costs, m, i-1) + costs[i-1], recursive(costs, m, i-2) + costs[i-2])
+            return m[i]
 
+        n = len(cost)
+        mm = [-1] * (n + 1)
+        return recursive(cost, mm, n)
