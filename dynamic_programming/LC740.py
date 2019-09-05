@@ -41,11 +41,11 @@ class SolutionT740(object):
         :rtype: int
         """
         if not nums: return 0
-        r = max(nums)           # 方便后面初始化数组
-        l = min(nums)
-        points = [0] * (r - l + 1)
+        right = max(nums)           # 方便后面初始化数组
+        left = min(nums)
+        points = [0] * (right - left + 1)
         for num in nums:
-            points[num - l] += num
+            points[num - left] += num
         return self.rob(points)
 
     def rob(self, nums):
