@@ -13,3 +13,7 @@ class DPTest(unittest.TestCase):
         self.assertEqual(SolutionT198().rob_2([1, 2, 3, 1]), 4)
         self.assertEqual(SolutionT198().rob_2([2, 1, 1, 2]), 4)
         self.assertEqual(SolutionT198().rob_3([2, 1, 1, 2]), 4)
+
+    def test_lc790(self):
+        from dynamic_programming.LC790 import SolutionT790
+        self.assertEqual(SolutionT790().numTilings(3), 5)
