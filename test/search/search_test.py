@@ -18,3 +18,8 @@ class SearchTest(unittest.TestCase):
     def test_lc216(self):
         from search.LC216 import SolutionT216
         self.assertEqual(SolutionT216().combinationSum3(3, 9), [[1, 2, 6], [1, 3, 5], [2, 3, 4]])
+
+    def test_lc377(self):
+        from search.LC377 import SolutionT377
+        self.assertEqual(SolutionT377().combinationSum4([1, 2, 3], 4), 7)
+        self.assertEqual(SolutionT377().combinationSum4([1, 2, 3], 3), 4)
