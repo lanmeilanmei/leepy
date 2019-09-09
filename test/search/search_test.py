@@ -10,3 +10,7 @@ class SearchTest(unittest.TestCase):
         from search.LC39 import SolutionT39
         self.assertEqual(SolutionT39().combinationSum([2, 3, 6, 7], 7), [[2, 2, 3], [7]])
         self.assertEqual(SolutionT39().combinationSum_order([2, 3, 6, 7], 7), [[7], [2, 2, 3]])
+
+    def test_lc40(self):
+        from search.LC40 import SolutionT40
+        self.assertEqual(SolutionT40().combinationSum2([2, 5, 2, 1, 2], 5), [[1, 2, 2], [5]])
