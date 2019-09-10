@@ -32,3 +32,8 @@ class SearchTest(unittest.TestCase):
         from search.LC78 import SolutionT78
         self.assertEqual(SolutionT78().subsets([1, 2, 3]), [[], [1], [2], [3], [1, 2], [1, 3], [2, 3], [1, 2, 3]])
         self.assertEqual(SolutionT78().subsets_BFS([1, 2, 3]), [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]])
+
+    def test_lc90(self):
+        from search.LC90 import SolutionT90
+        self.assertEqual(SolutionT90().subsetsWithDup([1, 2, 2]), [[], [1], [2], [1, 2], [2, 2], [1, 2, 2]])
+
