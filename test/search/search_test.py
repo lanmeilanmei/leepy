@@ -27,3 +27,8 @@ class SearchTest(unittest.TestCase):
     def test_lc77(self):
         from search.LC77 import SolutionT77
         self.assertEqual(SolutionT77().combine(4, 2), [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]])
+
+    def test_lc78(self):
+        from search.LC78 import SolutionT78
+        self.assertEqual(SolutionT78().subsets([1, 2, 3]), [[], [1], [2], [3], [1, 2], [1, 3], [2, 3], [1, 2, 3]])
+        self.assertEqual(SolutionT78().subsets_BFS([1, 2, 3]), [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]])
