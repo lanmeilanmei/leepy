@@ -37,3 +37,6 @@ class SearchTest(unittest.TestCase):
         from search.LC90 import SolutionT90
         self.assertEqual(SolutionT90().subsetsWithDup([1, 2, 2]), [[], [1], [2], [1, 2], [2, 2], [1, 2, 2]])
 
+    def test_lc47(self):
+        from search.LC47 import Solution
+        self.assertEqual(Solution().permuteUnique([1, 1, 2]), [[1, 1, 2], [1, 2, 1], [2, 1, 1]])
