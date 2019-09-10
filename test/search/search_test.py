@@ -40,3 +40,7 @@ class SearchTest(unittest.TestCase):
     def test_lc47(self):
         from search.LC47 import Solution
         self.assertEqual(Solution().permuteUnique([1, 1, 2]), [[1, 1, 2], [1, 2, 1], [2, 1, 1]])
+
+    def test_lc784(self):
+        from search.LC784 import Solution
+        self.assertEqual(Solution().letterCasePermutation("a1b2"), ["a1b2", "a1B2", "A1b2", "A1B2"])
