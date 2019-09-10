@@ -43,4 +43,5 @@ class SearchTest(unittest.TestCase):
 
     def test_lc784(self):
         from search.LC784 import Solution
-        self.assertEqual(Solution().letterCasePermutation("a1b2"), ["a1b2", "a1B2", "A1b2", "A1B2"])
+        # self.assertEqual(Solution().letterCasePermutation("a1b2"), ["a1b2", "a1B2", "A1b2", "A1B2"])
+        self.assertEqual(Solution().letterCasePermutation_BFS("a1b2"), ['A1B2', 'A1b2', 'a1B2', 'a1b2'])

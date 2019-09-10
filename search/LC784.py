@@ -54,3 +54,15 @@ class Solution(object):
         S = tmp
         return S
 
+    def letterCasePermutation_BFS(self, S):
+        ans = [""]
+        for c in S:
+            tmp = []
+            for path in ans:
+                if c.isalpha():
+                    for cr in [c.upper(), c.lower()]:
+                        tmp.append(path+cr)
+                else:
+                    tmp.append(path + c)
+            ans = tmp                                   # LC46--固定长度是更新ans, 变长则是添加到ans
+        return ans
