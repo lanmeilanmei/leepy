@@ -49,3 +49,8 @@ class SearchTest(unittest.TestCase):
     def test_lc996(self):
         from search.LC996 import Solution
         self.assertEqual(Solution().numSquarefulPerms([1, 17, 8]), 2)
+
+    def test_lc301(self):
+        from search.LC301 import Solution
+        # self.assertEqual(Solution().removeInvalidParentheses("()())()"), ['(())()', '()()()'])
+        self.assertEqual(Solution().removeInvalidParentheses("(a)())()"), ["(a())()", "(a)()()"])
