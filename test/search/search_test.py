@@ -54,3 +54,7 @@ class SearchTest(unittest.TestCase):
         from search.LC301 import Solution
         # self.assertEqual(Solution().removeInvalidParentheses("()())()"), ['(())()', '()()()'])
         self.assertEqual(Solution().removeInvalidParentheses("(a)())()"), ["(a())()", "(a)()()"])
+
+    def test_lc678(self):
+        from search.LC678 import Solution
+        self.assertEqual(Solution().checkValidString("(*))"), True)
