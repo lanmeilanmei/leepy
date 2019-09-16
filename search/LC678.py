@@ -72,3 +72,30 @@ class Solution(object):
                 else:
                     ct += 1
         return ct == 0
+
+    def checkValidString_try(self, s):
+        self.ans = False
+        self.dfs_try(s, 0)
+        return self.ans
+
+    def dfs_try(self, S, i):
+        if self.ans:
+            return
+        if i == len(S):
+            if self.isValid(S):
+                self.ans = True
+            return
+
+        self.dfs_try(S, i+1)
+        if S[i] == "*" and not self.ans:
+            tmp = S
+
+            S = S[:i] + "(" + S[i + 1:]
+            self.dfs_try(S, i + 1)
+
+            if self.ans: return
+
+            S = S[:i] + ")" + S[i + 1:]
+            self.dfs_try(S, i + 1)
+
+            S = tmp
