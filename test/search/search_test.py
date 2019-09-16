@@ -58,3 +58,4 @@ class SearchTest(unittest.TestCase):
     def test_lc678(self):
         from search.LC678 import Solution
         self.assertEqual(Solution().checkValidString("(*))"), True)
+        self.assertEqual(Solution().checkValidString("(**())"), True)

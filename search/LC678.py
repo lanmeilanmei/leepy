@@ -33,12 +33,15 @@ class Solution(object):
         """
         ans = []
         self.dfs(s, 0, ans)
-        return len(ans) > 0
+        for s in ans:
+            if self.isValid(s): return True
+        return False
+        # return len(ans) > 0
 
     def dfs(self, S, i, ans):
         if i == len(S):
-            if self.isValid(S):
-                ans.append(S)
+            # if self.isValid(S):
+            ans.append(S)
             return
 
         self.dfs(S, i+1, ans)
