@@ -59,3 +59,9 @@ class SearchTest(unittest.TestCase):
         from search.LC678 import Solution
         self.assertEqual(Solution().checkValidString("(*))"), True)
         self.assertEqual(Solution().checkValidString("(**())"), True)
+
+    def test_lc491(self):
+        from search.LC491 import Solution
+        self.assertEqual(Solution().findSubsequences([4, 6, 7, 7]), [[4, 6], [4, 6, 7], [4, 6, 7, 7], [4, 7], [4, 7, 7], [6, 7], [6, 7, 7], [7, 7]])
+        # self.assertEqual(Solution().findSubsequences([4, 3, 2, 1]), [])
+        # self.assertEqual(Solution().bfs([4, 6, 7, 7]), [])
