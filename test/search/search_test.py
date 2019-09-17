@@ -68,7 +68,7 @@ class SearchTest(unittest.TestCase):
 
     def test_lc79(self):
         from search.LC79 import Solution
-        # self.assertEqual(Solution().exist([["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], "ABCC"), True)
-        # self.assertEqual(Solution().exist([["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], "ASAD"), True)
-        # self.assertEqual(Solution().exist([["a", "a", "a", "a"], ["a", "a", "a", "a"], ["a", "a", "a", "a"]], "aaaaaaaaaaaaa"), False)
+        self.assertEqual(Solution().exist([["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], "ABCC"), True)
+        self.assertEqual(Solution().exist([["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], "ASAD"), True)
+        self.assertEqual(Solution().exist([["a", "a", "a", "a"], ["a", "a", "a", "a"], ["a", "a", "a", "a"]], "aaaaaaaaaaaaa"), False)
         self.assertEqual(Solution().exist([["a", "a", "a", "a"], ["a", "a", "a", "a"], ["a", "a", "a", "a"]], "aaaaaaaaaaab"), False)
