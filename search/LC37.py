@@ -25,7 +25,9 @@ class Solution(object):
         :type board: List[List[str]]
         :rtype: None Do not return anything, modify board in-place instead.
         """
-        self.rows = self.cols = self.boxes = [[0 for _ in range(10)] for _ in range(9)]
+        self.rows = [[0 for _ in range(10)] for _ in range(9)]
+        self.cols = [[0 for _ in range(10)] for _ in range(9)]
+        self.boxes = [[0 for _ in range(10)] for _ in range(9)]
 
         for i in range(9):
             for j in range(9):
