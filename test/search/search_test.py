@@ -56,7 +56,7 @@ class SearchTest(unittest.TestCase):
         self.assertEqual(Solution().removeInvalidParentheses("(a)())()"), ["(a())()", "(a)()()"])
 
     def test_lc678(self):
-        from search.LC678 import Solution
+        from search.LC678 import Solution       # uncorrected
         self.assertEqual(Solution().checkValidString("(*))"), True)
         self.assertEqual(Solution().checkValidString("(**())"), True)
 
@@ -65,3 +65,10 @@ class SearchTest(unittest.TestCase):
         self.assertEqual(Solution().findSubsequences([4, 6, 7, 7]), [[4, 6], [4, 6, 7], [4, 6, 7, 7], [4, 7], [4, 7, 7], [6, 7], [6, 7, 7], [7, 7]])
         self.assertEqual(Solution().findSubsequences([4, 3, 2, 1]), [])
         self.assertEqual(Solution().bfs([4, 6, 7, 7]), [(4, 7), (6, 7), (4, 6), (4, 6, 7, 7), (7, 7), (4, 7, 7), (4, 6, 7), (6, 7, 7)])
+
+    def test_lc79(self):
+        from search.LC79 import Solution
+        # self.assertEqual(Solution().exist([["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], "ABCC"), True)
+        # self.assertEqual(Solution().exist([["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], "ASAD"), True)
+        # self.assertEqual(Solution().exist([["a", "a", "a", "a"], ["a", "a", "a", "a"], ["a", "a", "a", "a"]], "aaaaaaaaaaaaa"), False)
+        self.assertEqual(Solution().exist([["a", "a", "a", "a"], ["a", "a", "a", "a"], ["a", "a", "a", "a"]], "aaaaaaaaaaab"), False)
