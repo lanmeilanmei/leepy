@@ -13,11 +13,9 @@
 数组中的整数范围是 [-100,100]。
 给定数组中可能包含重复数字，相等的数字应该被视为递增的一种情况。
 """
-# 组合搜索模板, 而且是单元素不能多次重复被查找的案例,
-# https://leetcode.com/problems/increasing-subsequences/discuss/170270/python-DFS-and-DP-solution
+# 组合搜索模板, 而且是单元素不能多次重复被查找、并保持先后顺序的案例,
 
 
-# unresolved
 class Solution(object):
     def findSubsequences(self, nums):
         """
@@ -42,18 +40,13 @@ class Solution(object):
                 self.dfs(nums, i+1, path, ans)
                 path.pop()
 
-    def mixDiscuss(self):
-        pass
-
     def bfs(self, nums):
-        ans = [[-float("inf")]]
+        ans = {()}
         for num in nums:
-            tmp = []
+            tmp = {()}
             for path in ans:
-                if num >= path[-1]:
-                    t = path + [num]
-                    if t not in ans:
-                        tmp.append(t)
-            ans += tmp
+                if not path or path[-1] <= num:
+                    tmp.add(path + (num, ))
+            ans |= tmp
 
-        return [p[1:] for p in ans if len(p) >= 3]
+        return [p for p in ans if len(p) >= 2]
