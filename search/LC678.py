@@ -25,6 +25,7 @@
 # dfs 超时, 尚未看解析 https://zxi.mytechroad.com/blog/?s=Valid+Parenthesis+String
 
 
+# unresolved
 class Solution(object):
     def checkValidString(self, s):
         """
