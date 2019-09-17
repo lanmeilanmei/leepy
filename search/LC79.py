@@ -29,7 +29,6 @@ class Solution(object):
         """
         if not board: return False
         h, w = len(board), len(board[0])    # 行  列
-        if len(word) > h * w: return False
 
         def search(d, x, y):
             if x < 0 or y < 0 or x == w or y == h or word[d] != board[y][x]:  # x 列  y 行
