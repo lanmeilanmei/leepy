@@ -42,3 +42,4 @@ class Solution(object):
             return found
 
         return any(search(0, j, i) for i in range(h) for j in range(w))
+
