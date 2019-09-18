@@ -65,37 +65,73 @@ class Solution(object):
 
         return any(search(0, i, j) for i in range(self.w) for j in range(self.h))
 
+    def findWords_2(self, board, words):
+        """
+        :type board: List[List[str]]
+        :type words: List[str]
+        :rtype: List[str]
+        """
+        res = []
+        trie = Trie()
+        node = trie.root
+        for word in words:
+            trie.insert(word)
+        for i in range(len(board)):
+            for j in range(len(board[0])):
+                self.dfs_trie(board, node, i, j, "", res)
+        return res
 
-    # def findWords(self, board, words):
-    #     """
-    #     :type board: List[List[str]]
-    #     :type words: List[str]
-    #     :rtype: List[str]
-    #     """
-    #     ans = []
-    #     for word in words:
-    #         if self.exist(board, word):
-    #             ans.append(word)
-    #     return ans
-    #
-    # def exist(self, board, words):
-    #     if not board: return False
-    #     h, w = len(board), len(board[0])
-    #
-    #     def search(depth, x, y):
-    #         if x < 0 or y < 0 or x == w or y == h or words[depth] != board[y][x]:
-    #             return False
-    #         if depth == len(words) - 1:
-    #             return True
-    #
-    #         curr = board[y][x]
-    #         board[y][x] = ""
-    #         found = search(depth+1, x+1, y) \
-    #                 or search(depth+1, x-1, y) \
-    #                 or search(depth+1, x, y+1) \
-    #                 or search(depth+1, x, y-1)
-    #         board[y][x] = curr
-    #
-    #         return found
-    #
-    #     return any(search(0, i, j) for i in range(w) for j in range(h))
+    def dfs_trie(self, board, node, i, j, path, res):
+        if node.isWord:
+            res.append(path)
+            node.isWord = False
+
+        if i < 0 or i >= len(board) or j < 0 or j >= len(board[0]):
+            return
+
+        tmp = board[i][j]
+        node = node.children.get(tmp)
+        if not node:
+            return
+
+        board[i][j] = "#"
+        self.dfs_trie(board, node, i+1, j, path+tmp, res)
+        self.dfs_trie(board, node, i-1, j, path+tmp, res)
+        self.dfs_trie(board, node, i, j-1, path+tmp, res)
+        self.dfs_trie(board, node, i, j+1, path+tmp, res)
+        board[i][j] = tmp
+
+
+import collections
+
+
+class TrieNode():
+    def __init__(self):
+        self.children = collections.defaultdict(TrieNode)
+        self.isWord = False
+
+
+class Trie():
+    def __init__(self):
+        self.root = TrieNode()
+
+    def insert(self, word):
+        node = self.root
+        for w in word:
+            node = node.children[w]
+        node.isWord = True
+
+    def search(self, word):
+        node = self.root
+        for w in word:
+            node = node.children.get(w)
+            if not node:
+                return False
+        return node.isWord
+
+
+Solution().findWords_2(
+    [["o","a","a","n"],
+     ["e","t","a","e"],
+     ["i","h","k","r"],
+     ["i","f","l","v"]], ["oath", "pea", "eat", "rain"])
