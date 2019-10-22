@@ -14,8 +14,9 @@
 你算法的时间复杂度应该为 O(n2) 。
 进阶: 你能将算法的时间复杂度降低到 O(n log n) 吗?
 """
-# DFS
-# BFS
+# DFS O(n^2)
+# BFS O(n^2)
+# 二分法 O(nlogn)
 
 
 class Solution(object):
@@ -31,7 +32,7 @@ class Solution(object):
         for i in range(1, n):
             for j in range(i):
                 if nums[i] > nums[j]:
-                    ans[i] = max(ans[i], ans[j] + 1)
+                    ans[i] = max(ans[i], ans[j] + 1)    # 外、内循环, 保证nums[i]会记录当前最长升序子序列长度
         return max(ans)
 
     def lengthOfLIS_dfs(self, nums):
@@ -57,6 +58,26 @@ class Solution(object):
             ans = max(ans, dfs(nums, i))
         return ans
 
+    def lengthOfLIS_3(self, nums):
+        tails = [0] * len(nums)     # tails 记录当前有效升序序列 !!!
+        index = 0     # index 记录tails 当前已记录的连续升序序列最后一位有效索引
+
+        for x in nums:
+            left, right = 0, index      # 这里 index 搭配二分法的使用 !!!
+            while left != right:
+                mid = (left + right) // 2
+                if tails[mid] < x:
+                    left = mid + 1
+                else:
+                    right = mid
+            tails[left] = x
+            index = max(left+1, index)  #
+        return index
+
 
 if __name__ == '__main__':
     print(Solution().lengthOfLIS_dfs([10, 9, 2, 5, 3, 7, 101, 18]))
+
+    print(Solution().lengthOfLIS_3([10, 9, 2, 5, 3, 7, 101, 18]))
+
+    print(Solution().lengthOfLIS_3([10, 9, 2, 5, 3, 1, 7, 101, 18]))
