@@ -22,7 +22,7 @@ s = "axc", t = "ahbgdc"
 如果有大量输入的 S，称作S1, S2, ... , Sk 其中 k >= 10亿，你需要依次检查它们是否为 T 的子序列。在这种情况下，你会怎样改变代码？
 """
 # 解法1 常规思路 O(n)
-#
+# 解法2 DP, 先在二维数组中存储 t 中所有字符出现的序号, 比较最近的tag标记位即可.
 
 
 class Solution(object):
@@ -46,7 +46,7 @@ class Solution(object):
         return False
 
     def isSubsequence_2(self, s, t):
-        dp = [[-1]] * 26
+        dp = [[-2] for _ in range(26)]
         tag = -1
 
         # 存储各个字母出现的位置序号
@@ -59,6 +59,7 @@ class Solution(object):
             left = 0
             right = len(dp[now]) - 1
 
+            # 二分搜索找到最早出现 s[i] 的位置索引
             while left < right:
                 mid = (left + right) // 2
                 if dp[now][mid] > tag:
@@ -66,18 +67,19 @@ class Solution(object):
                 else:
                     left = mid + 1
 
-            if right < left or dp[now][left] == tag:
+            # 判断当前 s[i] 索引是否有效
+            if right < left or dp[now][left] < tag:
                 return False
-            tag = dp[now][left]
+            tag = dp[now][left] # 更新上一个tag序号
 
         return True
 
 
 if __name__ == '__main__':
-    print(Solution().isSubsequence("abc", "ahbgdc"))
-
-    print(Solution().isSubsequence_2("abc", "ahbgdc"))
-
-    print(Solution().isSubsequence("axc", "ahbgdc"))
+    # print(Solution().isSubsequence("abc", "ahbgdc"))
+    #
+    # print(Solution().isSubsequence_2("abc", "ahbgdc"))
+    #
+    # print(Solution().isSubsequence("axc", "ahbgdc"))
 
     print(Solution().isSubsequence_2("axc", "ahbgdc"))
